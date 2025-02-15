@@ -47,7 +47,7 @@ class OnboardingPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
+      backgroundColor: Colors.purple,
       body: SafeArea(
         child: Column(
           children: [
