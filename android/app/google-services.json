@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "553916064649",
+    "project_id": "mrp4002-826ef",
+    "storage_bucket": "mrp4002-826ef.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553916064649:android:0fd46e6a1468da76803758",
+        "android_client_info": {
+          "package_name": "com.example.mrp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCxggKszLUK98d1OEIoC4hYm08jn1mIHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
