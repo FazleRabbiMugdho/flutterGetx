@@ -28,13 +28,19 @@ class SignUpScreen extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text("OR"),
+                    const Text(
+                      "OR",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.grey,
+                      ),
+                    ),
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton.icon(
                         icon: Image.asset(
                           GoogleLogoImage, // Use the Google logo constant here
-                          width: 20.0,
+                          width: 40.0,
                         ),
                         onPressed: () {
                           // Implement Google sign-in functionality here

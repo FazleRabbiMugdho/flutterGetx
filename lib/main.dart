@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
         // Update this part if you're using specific text themes in your app
         textTheme: Theme.of(context).textTheme.apply(
           bodyColor: Colors.black,

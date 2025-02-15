@@ -21,11 +21,11 @@ class SignupHeaderWidgets extends StatelessWidget {
         ),
         Text(
           'Sign Up',
-          style: Theme.of(context).textTheme.headlineLarge, // Updated
+          style: Theme.of(context).textTheme.headlineLarge, // Using theme for header
         ),
         Text(
           'Create a new account to get started',
-          style: Theme.of(context).textTheme.bodyLarge, // Updated
+          style: Theme.of(context).textTheme.bodyLarge, // Using theme for subtitle
         ),
       ],
     );
