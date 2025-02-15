@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mrp/src/constants/image_strings.dart';
-import 'package:mrp/src/constants/text_strings.dart';
+
+import '../../../src/constants/image_strings.dart';
 
 class SignupHeaderWidgets extends StatelessWidget {
   const SignupHeaderWidgets({
@@ -15,14 +15,18 @@ class SignupHeaderWidgets extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Display the header image for the signup screen
         Image(
-          image: const AssetImage(WelcomeScreenImage), // You can use the same image or a different one
+          image: const AssetImage(WelcomeScreenImage),
           height: size.height * 0.2,
         ),
-        // Title and subtitle for Sign Up
-        Text(signupTitle, style: Theme.of(context).textTheme.displayLarge),
-        Text(signupSubTitle, style: Theme.of(context).textTheme.bodyLarge),
+        Text(
+          'Sign Up',
+          style: Theme.of(context).textTheme.headlineLarge, // Updated
+        ),
+        Text(
+          'Create a new account to get started',
+          style: Theme.of(context).textTheme.bodyLarge, // Updated
+        ),
       ],
     );
   }

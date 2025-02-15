@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mrp/features/screens/login/login_form_widgets.dart';
 import 'package:mrp/features/screens/login/login_header_widgets.dart';
-import 'package:mrp/src/constants/image_strings.dart';
+import 'package:mrp/src/constants/image_strings.dart';  // Import the constants file where GoogleLogoImage is defined
 import 'package:mrp/src/constants/sizes.dart';
 import 'package:mrp/src/constants/text_strings.dart';
 import 'package:mrp/features/screens/signUp/sign_up_screen.dart';
@@ -32,16 +32,18 @@ class LoginScreen extends StatelessWidget {
                       width: double.infinity,
                       child: OutlinedButton.icon(
                         icon: const Image(
-                          image: AssetImage(GoogleLogoImage),
+                          image: AssetImage("assets/logo/google_logo.png"),  // Use the constant here
                           width: 20.0,
                         ),
-                        onPressed: () {},
-                        label: Text(stringInWithGoogle),
+                        onPressed: () {
+                          // Google sign-in functionality here
+                        },
+                        label: const Text("Sign Up with Google"),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: formHeight - 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     // Use GetX for navigation

@@ -1,53 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mrp/src/constants/text_strings.dart';
-import 'package:mrp/features/screens/signUp/sign_up_controller.dart';
-
-import '../../../src/constants/sizes.dart';
+import 'sign_up_controller.dart';
 
 class SignUpForm extends StatelessWidget {
-  const SignUpForm({super.key});
+  final SignUpController controller = Get.put(SignUpController());
 
   @override
   Widget build(BuildContext context) {
-    final signUpController = Get.put(SignUpController()); // Instantiate the controller
-
-    return Form(
-      child: Column(
-        children: [
-          TextFormField(
-            onChanged: (value) {
-              signUpController.fullName.value = value;
-            },
-            decoration: const InputDecoration(labelText: "Full Name"),
+    return Column(
+      children: [
+        TextField(
+          onChanged: (value) => controller.fullName.value = value, // Full Name input
+          decoration: const InputDecoration(labelText: 'Full Name'),
+        ),
+        TextField(
+          onChanged: (value) => controller.email.value = value,
+          decoration: const InputDecoration(labelText: 'Email'),
+        ),
+        TextField(
+          onChanged: (value) => controller.password.value = value,
+          obscureText: true,
+          decoration: const InputDecoration(labelText: 'Password'),
+        ),
+        TextField(
+          onChanged: (value) => controller.confirmPassword.value = value, // Confirm Password input
+          obscureText: true,
+          decoration: const InputDecoration(labelText: 'Confirm Password'),
+        ),
+        TextField(
+          onChanged: (value) => controller.phoneNumber.value = value, // Phone number input
+          decoration: const InputDecoration(labelText: 'Phone Number'),
+        ),
+        Obx(
+              () => DropdownButtonFormField<String>(
+            value: controller.selectedRole.value,
+            items: controller.roles
+                .map((role) => DropdownMenuItem(value: role, child: Text(role)))
+                .toList(),
+            onChanged: (value) => controller.selectedRole.value = value!,
+            decoration: const InputDecoration(labelText: 'Role'),
           ),
-          const SizedBox(height: formHeight - 10),
-          TextFormField(
-            onChanged: (value) {
-              signUpController.email.value = value;
-            },
-            decoration: const InputDecoration(labelText: "Email"),
+        ),
+        Obx(
+              () => DropdownButtonFormField<String>(
+            value: controller.selectedLocation.value,
+            items: controller.locations
+                .map((location) => DropdownMenuItem(value: location, child: Text(location)))
+                .toList(),
+            onChanged: (value) => controller.selectedLocation.value = value!,
+            decoration: const InputDecoration(labelText: 'Location'),
           ),
-          const SizedBox(height: formHeight - 10),
-          TextFormField(
-            onChanged: (value) {
-              signUpController.password.value = value;
-            },
-            decoration: const InputDecoration(labelText: "Password"),
-            obscureText: true,
-          ),
-          const SizedBox(height: formHeight - 10),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {
-                signUpController.signUp();
-              },
-              child: const Text("Sign Up"),
-            ),
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 20),
+        ElevatedButton(
+          onPressed: controller.signUp,
+          child: const Text('Sign Up'),
+        ),
+      ],
     );
   }
 }

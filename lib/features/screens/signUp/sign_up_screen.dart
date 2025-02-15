@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mrp/features/screens/signUp/sign_up_form_widgets.dart';
-import 'package:mrp/features/screens/signUp/signup_header_widgets.dart';
-import 'package:mrp/src/constants/image_strings.dart';
-import 'package:mrp/src/constants/sizes.dart';
-import 'package:mrp/src/constants/text_strings.dart';
+import '../../../src/constants/image_strings.dart';
+import 'sign_up_form_widgets.dart';
+import 'signup_header_widgets.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -16,12 +14,17 @@ class SignUpScreen extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Container(
-            padding: const EdgeInsets.all(defaultSize),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Header section
                 SignupHeaderWidgets(size: size),
-                const SignUpForm(),
+
+                // Sign-up form section
+                SignUpForm(),
+
+                // OR divider
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -29,34 +32,28 @@ class SignUpScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton.icon(
-                        icon: const Image(
-                          image: AssetImage(GoogleLogoImage),
+                        icon: Image.asset(
+                          GoogleLogoImage, // Use the Google logo constant here
                           width: 20.0,
                         ),
-                        onPressed: () {},
-                        label: Text(stringInWithGoogle),
+                        onPressed: () {
+                          // Implement Google sign-in functionality here
+                        },
+                        label: const Text("Sign Up with Google"),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: formHeight - 20),
+
+                // Spacer for additional space before text button
+                const SizedBox(height: 20),
+
+                // Login redirection
                 TextButton(
                   onPressed: () {
-                    // Use GetX for navigation
-                    Get.back();
+                    Get.back(); // Go back to the previous screen
                   },
-                  child: Text.rich(
-                    TextSpan(
-                      text: alreadyHaveAnAccount,
-                      style: Theme.of(context).textTheme.bodyLarge,
-                      children: [
-                        TextSpan(
-                          text: login,
-                          style: const TextStyle(color: Colors.blue),
-                        ),
-                      ],
-                    ),
-                  ),
+                  child: const Text('Already have an account? Log in'),
                 ),
               ],
             ),
